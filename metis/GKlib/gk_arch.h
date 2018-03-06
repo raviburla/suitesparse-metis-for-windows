@@ -31,7 +31,7 @@
 #endif
 
 
-#ifdef __MSC__ 
+#ifdef __MSC__
   #include "ms_stdint.h"
   #include "ms_inttypes.h"
   #include "ms_stat.h"
@@ -59,9 +59,10 @@ typedef ptrdiff_t ssize_t;
 #endif
 
 #ifdef __MSC__
+#if (_MSC_VER < 1800)
 /* MSC does not have rint() function */
-#define rint(x) ((int)((x)+0.5))  
-
+#define rint(x) ((int)((x)+0.5))
+#endif
 /* MSC does not have INFINITY defined */
 #ifndef INFINITY
 #define INFINITY FLT_MAX
