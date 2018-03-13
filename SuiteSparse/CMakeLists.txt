@@ -34,6 +34,13 @@ include_directories(".")  # Needed for "SourceWrappers/*.c" files
 
 set(suitesparseconfig_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SuiteSparse_config) # Needed by all subprojects
 
+set(suitesparse_GPU_Includes 
+	${CMAKE_CURRENT_SOURCE_DIR}/GPUQREngine/Include 
+ 	${CMAKE_CURRENT_SOURCE_DIR}/SuiteSparse_GPURuntime/Include
+) # Needed by GPU subprojects
+
+include_directories("${suitesparse_GPU_Includes}")  # Needed for GPU subprojects.
+
 set(SUBPROJECTS_TO_ADD 
 	SuiteSparse_config
 	AMD
